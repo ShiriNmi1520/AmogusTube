@@ -1,12 +1,7 @@
-FROM --platform=arm64 node:16.15.1
+FROM --platform=arm64 node:16-alpine
 
 WORKDIR /app
-
-COPY ./package.json ./
-RUN npm i -s
 COPY . .
-RUN npm run build
+RUN npm i
 
-EXPOSE 3000
-
-CMD npm start
+CMD ["npm", "start"]

@@ -1,14 +1,13 @@
 version: '3.6'
 
 services:
-  AmogusTube:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  amogus:
+    build: .
+    command: sh -c "npm install && npm start"
     volumes:
-      - ./data:/data
+      - ./:/app
     networks:
-      - Amogus
+      - AmogusTube
     environment:
       APP_NAME: AmogusTube
       APP_ENV: development
